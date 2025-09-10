@@ -1,0 +1,38 @@
+[Q2] Décision de collaborer avec B — Plan de collaboration
+
+Contexte
+- Le projet existe en local chez A uniquement, B ne peut pas contribuer.
+- Objectif : permettre un travail à deux sans casser la branche principale.
+
+Décision
+- Utiliser GitHub comme gestionnaire de versions et plate-forme de collaboration.
+
+Règles de collaboration (workflow)
+1) Branche principale
+   - La branche `main` reste stable. On évite d’y pousser du code non validé.
+
+2) Branches de travail
+   - Chaque personne travaille sur sa propre branche de dev :
+     • A : `Dev_Theresa_YOUNDOUKA`
+     • B : `Dev_Eliel_Kone`
+   - Les nouvelles tâches/bugs peuvent aussi avoir des branches courtes dédiées.
+
+3) Cycle de contribution
+   - Modifier → `git add` → `git commit -m "message clair"` → `git push`.
+   - Demander une fusion vers `main` via Pull Request (ou merge en local si lab).
+   - A vérifie que seul ce qui est demandé a changé (diff/historique), puis fusionne.
+
+4) Qualité minimale
+   - Ne pas committer du code qui ne se compile pas.
+   - Ne pas merger dans `main` sans vérification (lecture rapide, tests si présents).
+
+5) Issues (communication)
+   - Décrire les problèmes/améliorations avec : Titre, Contexte, Étapes pour reproduire,
+     Résultat actuel vs attendu, Fichiers impactés, Commit fautif/référence.
+
+6) Gestion des accès
+   - A créera le dépôt GitHub et donnera à B l’accès *Write* (écriture).
+
+Conséquence
+- Étapes suivantes (Q3–Q4) : créer le dépôt vide sur GitHub, lier le dépôt local,
+  pousser `main`, inviter B et démarrer le travail à deux.
