@@ -1,58 +1,44 @@
-[Q2] Décision de collaborer avec B — Plan de collaboration
+Situation 2-1 — Rendre un projet local accessible via GitHub
 
+[Q2] Décision de collaborer avec B — Plan de collaboration
 Contexte
-- Le projet existe en local chez A uniquement, B ne peut pas contribuer.
-- Objectif : permettre un travail à deux sans casser la branche principale.
+- Le projet est seulement local chez A ; B ne peut pas contribuer.
+Objectif
+- Permettre un travail à deux sans casser la branche principale.
 
 Décision
-- Utiliser GitHub comme gestionnaire de versions et plate-forme de collaboration.
+- Utiliser Git + GitHub.
 
-Règles de collaboration (workflow)
-1) Branche principale
-   - La branche `main` reste stable. On évite d’y pousser du code non validé.
-
-2) Branches de travail
-   - Chaque personne travaille sur sa propre branche de dev :
-     • A : `Dev_Theresa_YOUNDOUKA`
-     • B : `Dev_Eliel_Kone`
-   - Les nouvelles tâches/bugs peuvent aussi avoir des branches courtes dédiées.
-
-3) Cycle de contribution
-   - Modifier → `git add` → `git commit -m "message clair"` → `git push`.
-   - Demander une fusion vers `main` via Pull Request (ou merge en local si lab).
-   - A vérifie que seul ce qui est demandé a changé (diff/historique), puis fusionne.
-
-4) Qualité minimale
-   - Ne pas committer du code qui ne se compile pas.
-   - Ne pas merger dans `main` sans vérification (lecture rapide, tests si présents).
-
-5) Issues (communication)
-   - Décrire les problèmes/améliorations avec : Titre, Contexte, Étapes pour reproduire,
-     Résultat actuel vs attendu, Fichiers impactés, Commit fautif/référence.
-
-6) Gestion des accès
-   - A créera le dépôt GitHub et donnera à B l’accès *Write* (écriture).
-
-Conséquence
-- Étapes suivantes (Q3–Q4) : créer le dépôt vide sur GitHub, lier le dépôt local,
-  pousser `main`, inviter B et démarrer le travail à deux.
-
+Règles de collaboration
+1) Branche principale : main reste stable (pas de dev direct).
+2) Branches de travail :
+   - A : Dev_Theresa_YOUNDOUKA
+   - B : Dev_Eliel_Kone
+3) Cycle de contribution :
+   - Modifier -> git add -> git commit -m "message clair" -> git push
+   - Puis PR/merge vers main après vérification par A.
+4) Qualité :
+   - Ne pas committer du code qui ne compile pas.
+   - Ne pas merger dans main sans vérification.
+5) Issues :
+   - Titre, Contexte, Étapes pour reproduire, Résultat actuel/attendu,
+     Fichiers impactés, commit fautif/référence, priorité/assigné, checklist.
+6) Accès :
+   - A donnera les droits Write à B sur GitHub.
 
 [Q3] Choix de GitHub comme gestionnaire de versions
+- Outil retenu : Git (local) + GitHub (distant).
+- Pré-requis : comptes A et B ; Git configuré (user.name / user.email) ; auth HTTPS ou SSH.
+- Paramètres : branche par défaut main ; dépôt public/privé selon consigne ; règles de qualité ci-dessus.
+- Prochaine étape : créer le dépôt vide, lier le remote, pousser main, inviter B.
 
-- Outil retenu : Git (local) + GitHub (distant) pour collaborer à deux (A et B).
-- Raisons : centraliser le code, historique des commits, Pull Requests, Issues, sauvegarde en ligne.
-- Pré-requis :
-  • A et B ont un compte GitHub.
-  • Git est installé et configuré (user.name / user.email).
-  • Authentification choisie : HTTPS (Git Credential Manager) ou SSH.
-- Paramètres décidés :
-  • Branche par défaut : main.
-  • Dépôt privé (ok pour un labo) ou public selon consigne.
-  • Règles de qualité : pas de commit cassé, PR/merge review avant d’intégrer dans main.
-- Prochaine étape (Q4) :
-  • A crée le dépôt vide sur GitHub,
-  • lie le dépôt local au distant (remote origin),
-  • pousse `main`,
-  • ajoute B comme collaborateur (droit Write).
-
+[Q4] Publication sur GitHub et accès pour B
+- Créer un dépôt vide : repo-gei311-lab1-partie2-1-Theresa_YOUNDOUKA (sans README/.gitignore).
+- Lier et publier depuis le local :
+  git branch -M main
+  git remote set-url origin https://github.com/THYOUNDOUKA/repo-gei311-lab1-partie2-1-Theresa_YOUNDOUKA.git
+  git push -u origin main
+- Inviter B : Settings -> Collaborators -> Add people (rôle Write).
+- Vérifs :
+  git ls-remote origin
+  git show origin/main:Dossier_A/textA.txt
