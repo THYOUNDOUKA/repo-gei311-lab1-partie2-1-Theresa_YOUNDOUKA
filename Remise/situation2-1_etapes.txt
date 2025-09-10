@@ -36,3 +36,23 @@ Règles de collaboration (workflow)
 Conséquence
 - Étapes suivantes (Q3–Q4) : créer le dépôt vide sur GitHub, lier le dépôt local,
   pousser `main`, inviter B et démarrer le travail à deux.
+
+
+[Q3] Choix de GitHub comme gestionnaire de versions
+
+- Outil retenu : Git (local) + GitHub (distant) pour collaborer à deux (A et B).
+- Raisons : centraliser le code, historique des commits, Pull Requests, Issues, sauvegarde en ligne.
+- Pré-requis :
+  • A et B ont un compte GitHub.
+  • Git est installé et configuré (user.name / user.email).
+  • Authentification choisie : HTTPS (Git Credential Manager) ou SSH.
+- Paramètres décidés :
+  • Branche par défaut : main.
+  • Dépôt privé (ok pour un labo) ou public selon consigne.
+  • Règles de qualité : pas de commit cassé, PR/merge review avant d’intégrer dans main.
+- Prochaine étape (Q4) :
+  • A crée le dépôt vide sur GitHub,
+  • lie le dépôt local au distant (remote origin),
+  • pousse `main`,
+  • ajoute B comme collaborateur (droit Write).
+
